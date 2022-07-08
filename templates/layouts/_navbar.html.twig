@@ -1,7 +1,8 @@
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-6 rounded dark:bg-gray-800 shadow">
+<nav class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
 	<div class="container flex flex-wrap justify-between items-center mx-auto">
 		<a href="{{path('app_home')}}" class="flex items-center">
-			<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">SymFannonces</span>
+			<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Sym<span class="text-red-500 font-bold uppercase text-2xl">Fa</span>
+			</span>
 		</a>
 		<button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
 			<span class="sr-only">Open main menu</span>
@@ -15,11 +16,12 @@
 		<div class="hidden w-full md:block md:w-auto" id="mobile-menu">
 			<ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
 				<li>
-					<a href="{{path('app_advert')}}" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Annonces</a>
+					<a href="{{path('app_advert')}}" class="block py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0 text-gray-500 font-bold text-sm" aria-current="page">Annonces</a>
 
 				</li>
 				<li>
-					<a href="{{path('create_advert')}}" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Publier une annonce</a>
+					<a href="{{path('create_advert')}}" class="block py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0 text-gray-500 font-bold texts-sm">Publier une annonce</a>
+
 
 				</li>
 				{% if app.user %}
@@ -38,17 +40,26 @@
 							</div>
 							<ul class="py-1" aria-labelledby="dropdown">
 								<li>
-									<a href="{{path('admin_advert')}}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Vos annonces</a>
+									<a href="{{path('admin_advert')}}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+										<i class="fa-solid fa-bullhorn mr-2"></i>Vos annonces</a>
+
 
 								</li>
 								<li>
-									<a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Votre profil</a>
+									<a href="{{path('app_profile')}}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+
+										<i class="fa-solid fa-user mr-2"></i>Votre profil</a>
+
 								</li>
 								<li>
-									<a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Parametres</a>
+									<a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+										<i class="fa-solid fa-gears mr-2"></i>Parametres</a>
+
 								</li>
 								<li>
-									<a href="{{path('app_logout')}}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Déconnexion</a>
+									<a href="{{path('app_logout')}}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+										<i class="fa-solid fa-power-off mr-2"></i>Déconnexion</a>
+
 								</li>
 							</ul>
 						</div>
@@ -67,10 +78,12 @@
 			</li>
 		{% else %}
 			<li>
-				<a href="{{path('app_register')}}" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Inscription</a>
+				<a href="{{path('app_register')}}" class="block py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0 text-gray-500 font-bold text-sm">Inscription</a>
+
 			</li>
 			<li>
-				<a href="{{path('app_login')}}" class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Connnexion</a>
+				<a href="{{path('app_login')}}" class="block py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0 text-gray-500 font-bold text-sm">Connnexion</a>
+
 			</li>
 		{% endif %}
 	</ul>

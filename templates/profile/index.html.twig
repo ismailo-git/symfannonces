@@ -1,20 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfileController!{% endblock %}
+{% block title %}Hello ProfileController!
+{% endblock %}
+
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	{% include "layouts/_navbar.html.twig" %}
+	<div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+		<div class="max-w-screen-sm sm:text-center sm:mx-auto">
+			<a href="/" aria-label="View" class="inline-block mb-5 rounded-full sm:mx-auto">
+				<div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
+					<img src="{{asset('/images/avatar.png')}}" alt="">
+				</div>
+			</a>
+			<h2 class="mb-4 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+				{{app.user.firstname}}
+				{{app.user.lastname}}
+			</h2>
+			<p class="text-base text-gray-700 md:text-lg sm:px-4">
+				{{app.user.email}}
+			</p>
+			<div class="mt-4 text-center">
+				<div class="flex flex-col items-center text-center">
+					<h3 class="text-md font-semibold text-gray-600">Nombre des annonces</h3>
+					<h3 class="text-gray-600 text-md font-semibold">{{app.user.adverts|length}}</h3>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+				</div>
+			</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/ismai/coding/Back-end/Symfony/symfannonces/src/Controller/ProfileController.php'|file_link(0) }}">src/Controller/ProfileController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/ismai/coding/Back-end/Symfony/symfannonces/templates/profile/index.html.twig'|file_link(0) }}">templates/profile/index.html.twig</a></code></li>
-    </ul>
-</div>
+			<div class="mt-4 text-center">
+				<a href="" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block">
+
+					<i class="fa-solid fa-pen-to-square"></i>Modifier votre profil
+				</a>
+
+			</div>
+
+			<hr class="w-full my-8 border-gray-300"/>
+		</div>
+	</div>
+
 {% endblock %}

@@ -1,0 +1,108 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	SymFannonces : Créer une annonce
+{% endblock %}
+
+{% block body %}
+	{% include "layouts/_navbar.html.twig" %}
+	<section class="max-w-3xl p-6 mx-auto mt-6 bg-white dark:bg-gray-800 shadow-2xl">
+
+		<h2 class="text-lg font-semibold text-red-600 text-center mb-12">Publier votre annonce avec ce formulaire</h2>
+
+		{{form_start(advertForm)}}
+		<div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+			<div>
+				{{form_label(advertForm.title, "Titre de l'annonce", {'label_attr': {'class': 'text-sm text-gray-500'}})}}
+
+				{{form_widget(advertForm.title, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+				{{ form_errors(advertForm.title) }}
+
+
+			</div>
+
+			<div>
+				{{form_label(advertForm.price, "Prix de l'annonce", {'label_attr': {'class': 'text-sm text-gray-500'}})}}
+
+				{{form_widget(advertForm.price, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+				{{ form_errors(advertForm.price) }}
+
+
+			</div>
+
+			<div>
+				{{form_label(advertForm.country, 'Pays', {'label_attr': {'class': 'text-sm text-gray-500'}})}}
+
+				{{form_widget(advertForm.country, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+				{{ form_errors(advertForm.country) }}
+
+
+			</div>
+
+			<div>
+				{{form_label(advertForm.city, 'Ville', {'label_attr': {'class': 'text-sm text-gray-500'}})}}
+
+				{{form_widget(advertForm.city, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+				{{ form_errors(advertForm.city) }}
+
+
+			</div>
+
+
+			<div>
+				{{form_label(advertForm.zipcode, 'Code postale', {'label_attr': {'class': 'text-sm text-gray-500'}})}}
+
+				{{form_widget(advertForm.zipcode, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+				{{ form_errors(advertForm.zipcode) }}
+
+
+			</div>
+
+
+			<div>
+				{{form_label(advertForm.imageFile, 'Télécharger une image', {'label_attr': {'class': 'text-sm text-gray-500'}})}}
+
+				{{form_widget(advertForm.imageFile, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+				{{ form_errors(advertForm.imageFile) }}
+
+
+			</div>
+
+			<div>
+				{{form_label(advertForm.category, 'Choisir une catégorie', {'label_attr': {'class': 'text-sm text-gray-500'}})}}
+
+				{{form_widget(advertForm.category, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+				{{ form_errors(advertForm.category) }}
+
+			</div>
+
+		</div>
+		<div class="w-full mt-4">
+			{{form_label(advertForm.description, 'Décrivez votre annonce', {'label_attr': {'class': 'text-sm text-gray-500'}})}}
+
+			{{form_widget(advertForm.description, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full h-40'}})}}
+
+
+			{{ form_errors(advertForm.description) }}
+
+
+		</div>
+		{{form_end(advertForm)}}
+
+
+	</section>
+{% endblock %}
