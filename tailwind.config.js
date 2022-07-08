@@ -1,13 +1,18 @@
-const withMT = require("@material-tailwind/html/utils/withMT");
-
-module.exports = withMT({
+module.exports = {
 	purge: [],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
-		extend: {},
+		colors: {
+			silver: "#f6f5f0",
+		},
+		extend: {
+			fontFamily: {
+				zoula: "Nunito",
+			},
+		},
 	},
 	variants: {
 		extend: {},
 	},
 	plugins: [],
-});
+};

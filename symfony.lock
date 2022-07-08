@@ -35,6 +35,12 @@
             "./migrations/.gitignore"
         ]
     },
+    "php-flasher/flasher-notyf-symfony": {
+        "version": "v1.7.0"
+    },
+    "php-flasher/flasher-symfony": {
+        "version": "v1.7.0"
+    },
     "phpunit/phpunit": {
         "version": "9.5",
         "recipe": {

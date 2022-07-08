@@ -13,7 +13,13 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdvertController extends AbstractController
-{
+{   
+    /**
+     * Cette fonction nous permet d'afficher les annonces qui sont enregistrées dans notre base de données
+     *
+     * @param AdvertRepository $advertRepository
+     * @return Response
+     */
     #[Route('/annonces', name: 'app_advert')]
     public function index(AdvertRepository $advertRepository): Response
     {
@@ -24,8 +30,36 @@ class AdvertController extends AbstractController
     }
 
 
+    /**
+     * Cette fonction nous permet d'afficher uniquement une annonce grâce à son slug
+     */
+    #[Route('/annonces/{slug}', name:'advert_show')]
+    public function show(AdvertRepository $advertRepository, $slug) {
 
+        $advert = $advertRepository->findOneBy([
 
+            'slug' => $slug
+        ]);
+
+         if (!$advert) {
+            
+            return $this->redirectToRoute('app_ads');
+         }
+
+        return $this->render('advert/show.html.twig', [
+
+            'advert' => $advert
+        ]);
+    }
+
+    /**
+     * Cette fonction nous permet de créer une annonce
+     *
+     * @param Request $request
+     * @param ManagerRegistry $doctrine
+     * @param SluggerInterface $slugger
+     * @return Response
+     */
     #[Route('/deposer-une-annonce', name:'create_advert')]
     public function create(Request $request, ManagerRegistry $doctrine, SluggerInterface $slugger): Response
     {   
