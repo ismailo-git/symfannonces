@@ -1,17 +1,75 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}SymFannonces: Inscription
+{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+	{% include "layouts/_navbar.html.twig" %}
+	<div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+		<div class="max-w-md mx-auto">
+			<div class="flex flex-col items-center">
+				<h2 class="text-gray-600 mb-1 text-xl font-semibold">Inscrivez-vous</h2>
+				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="44" height="44" viewbox="0 0 24 24" stroke-width="1.5" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+					<path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"/>
+					<path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"/>
+					<line x1="16" y1="5" x2="19" y2="8"/>
+				</svg>
+			</div>
+			<div class="p-6 mb-0 space-y-4 rounded-sm shadow-md">
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+				{{form_start(registrationForm) }}
+				<div class="mb-4">
+					{{form_label(registrationForm.firstname, 'Prénom', {'label_attr': {'class': 'text-sm text-gray-700 block mb-1 font-medium'}})}}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+					{{form_widget(registrationForm.firstname, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-1 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+					<div class="text-red-500 font-semibold text-xs bg-white">{{ form_errors(registrationForm.firstname) }}</div>
+				</div>
+
+				<div class="mb-4">
+					{{form_label(registrationForm.lastname, 'Nom de famille', {'label_attr': {'class': 'text-sm font-medium text-gray-500'}})}}
+					{{form_widget(registrationForm.lastname, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-1 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+					<div class="text-red-500 font-semibold text-xs bg-white">{{ form_errors(registrationForm.lastname) }}</div>
+				</div>
+
+				<div class="mb-4">
+					{{form_label(registrationForm.email, 'Adresse email', {'label_attr': {'class': 'text-sm font-medium text-gray-500'}})}}
+					{{form_widget(registrationForm.email, {'attr': {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-1 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+					<div class="text-red-500 font-semibold text-xs bg-white">{{ form_errors(registrationForm.email) }}</div>
+				</div>
+
+				<div class="mb-4">
+					{{form_label(registrationForm.plainPassword, 'Mot de passe', {'label_attr': {'class': 'text-sm font-medium text-gray-500'}})}}
+					{{form_widget(registrationForm.plainPassword, {'attr' : {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-1 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'}})}}
+
+
+					<div class="text-red-500 font-semibold text-xs bg-white">{{ form_errors(registrationForm.plainPassword) }}</div>
+				</div>
+
+				<div class="mb-4">
+					{{form_widget(registrationForm.agreeTerms, {'attr' : {'class': 'bg-gray-100 border border-gray-200 rounded py-1 px-1 block focus:ring-blue-500 focus:border-blue-500 text-gray-700'}})}}
+
+
+					{{form_label(registrationForm.agreeTerms, "J'accepte les conditions générales d'utilisation", {'label_attr': {"class": 'text-sm text-gray-700 block mb-1 font-medium'}})}}
+
+					<div class="text-red-500 font-semibold text-xs bg-white">{{ form_errors(registrationForm.agreeTerms) }}</div>
+				</div>
+
+				<button type="submit" class="w-full bg-green-500 text-white px-4 py-2 rounded-md mt-1">S'inscrire</button>
+				{{ form_end(registrationForm) }}
+				<p class="text-sm text-center text-gray-600 font-semibold">
+					Vous avez déja un compte ?
+					<a class="underline" href="{{path('app_login')}}">Se connecter</a>
+				</p>
+
+			</div>
+		</div>
+	</div>
+
 {% endblock %}
