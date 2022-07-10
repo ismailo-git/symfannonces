@@ -44,25 +44,19 @@ class AdvertFormType extends AbstractType
                     "placeholder" => "100 €"
                 ]
             ])
-            ->add('country', CountryType::class, [
-
-                "attr" => [
-
-                    "placeholder" => "41 BD Charles Moretti, 13014 Marseille"
-                ]
-            ])
+            ->add('country', CountryType::class)
             ->add('city', TextType::class, [
 
                 "attr" => [
 
-                    "placeholder" => "41 BD Charles Moretti, 13014 Marseille"
+                    "placeholder" => "Marseille"
                 ]
             ])
             ->add('zipcode', TextType::class, [
 
                 "attr" => [
 
-                    "placeholder" => "41 BD Charles Moretti, 13014 Marseille"
+                    "placeholder" => "13014"
                 ]
             ])
             ->add('imageFile', VichImageType::class, [

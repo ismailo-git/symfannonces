@@ -7,7 +7,7 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				zoula: "Nunito",
+				zoula: "Open Sans",
 			},
 		},
 	},

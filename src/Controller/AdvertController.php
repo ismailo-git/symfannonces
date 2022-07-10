@@ -6,6 +6,7 @@ use App\Entity\Advert;
 use App\Form\AdvertFormType;
 use App\Repository\AdvertRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Flasher\Notyf\Prime\NotyfFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -61,7 +62,7 @@ class AdvertController extends AbstractController
      * @return Response
      */
     #[Route('/deposer-une-annonce', name:'create_advert')]
-    public function create(Request $request, ManagerRegistry $doctrine, SluggerInterface $slugger): Response
+    public function create(Request $request, ManagerRegistry $doctrine, SluggerInterface $slugger, NotyfFactory $flasher): Response
     {   
 
         $entityManager = $doctrine->getManager();
@@ -79,8 +80,8 @@ class AdvertController extends AbstractController
             
             $entityManager->persist($advert);
             $entityManager->flush();
-            //  $flasher->addSuccess('Bravo ! Votre annonce a été déposée.');
-            // return $this->redirectToRoute("app_ads");
+            $flasher->addSuccess('Bravo ! Votre annonce a été déposée.');
+            return $this->redirectToRoute("app_advert");
         }
         return $this->render('advert/create.html.twig', [
             "advertForm" => $form->createView()

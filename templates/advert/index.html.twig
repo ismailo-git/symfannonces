@@ -5,25 +5,25 @@
 
 {% block body %}
 	{% include "layouts/_navbar.html.twig" %}
-	<section class="text-gray-600 body-font">
-		<div class="container px-5 py-24 mx-auto">
-			<div class="flex flex-wrap -m-4">
-				{% for advert in adverts %}
-					<div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-						<a class="block relative h-48 rounded overflow-hidden">
-							<img alt="ecommerce" class="object-cover object-center w-full h-full block" src="/uploads/annonces/{{advert.imageName}}">
-						</a>
-						<div class="mt-4">
-							<h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-							<h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-							<p class="mt-1">$16.00</p>
-							<a href="{{path('advert_show', {'slug': advert.slug})}}" aria-label="" class="inline-flex items-center transition-colors text-blue-700 duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Voir l'annonce</a>
-
+	<div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+		<div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+			<p class="text-base text-gray-700 md:text-lg">
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.
+			</p>
+		</div>
+		<div class="grid gap-5 row-gap-5 mb-8 lg:grid-cols-4 sm:grid-cols-2">
+			{% for advert in adverts %}
+			<a href="/" aria-label="View Item" class="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2">
+				<div class="flex flex-col h-full">
+					<img src="/uploads/annonces/{{advert.imageName}}" class="object-cover w-full h-48" alt="" />
+					<div class="flex-grow shadow-sm">
+						<div class="p-5">
+							<h5 class="mb-2 font-semibold leading-5 text-gray-800">{{advert.title}}</h5>
 						</div>
 					</div>
-				{% endfor %}
-			</div>
+				</div>
+			</a>
+			{% endfor %}
 		</div>
-	</section>
-
+	</div>
 {% endblock %}
