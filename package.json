@@ -21,6 +21,11 @@
         "watch": "encore dev --watch",
         "build": "encore production --progress"
     },
+
+    "engines": {
+        "node": "v16.13.1",
+         "yarn": "1.22.19"
+    },
     "dependencies": {
         "@material-tailwind/html": "^1.1.6"
     }
