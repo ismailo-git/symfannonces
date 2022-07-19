@@ -35,6 +35,9 @@
             "./migrations/.gitignore"
         ]
     },
+    "php-flasher/flasher-noty-symfony": {
+        "version": "v1.7.0"
+    },
     "php-flasher/flasher-notyf-symfony": {
         "version": "v1.7.0"
     },

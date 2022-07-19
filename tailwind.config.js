@@ -7,7 +7,7 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				zoula: "Open Sans",
+				body: "Poppins",
 			},
 		},
 	},
