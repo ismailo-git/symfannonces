@@ -7,5 +7,5 @@ vich_uploader:
     mappings:
         annonces_images:
             uri_prefix: /uploads/annonces
-            upload_destination: default.storage
+            upload_destination: aws.storage
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
